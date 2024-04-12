@@ -106,7 +106,10 @@ def main():
                     
                     # Error handling
                     except Exception as e:
-                        st.error(f"Error occurred: {str(e)}")
+                        st.error(f"Error occurred: {str(e)}") # Error message
+                        # Check if the error is related to OpenAI API
+                        if "ConnectionError" in str(e):
+                            st.error("OpenAI API is not accessible at the moment. Please try again later.")
 # Main function
 if __name__ == "__main__": 
     main()
